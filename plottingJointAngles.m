@@ -2,6 +2,7 @@
 % adopted from the code in "example.m" in
 % "\SynGrasp2.0\SyngraspRAMFinal\examples\Basic"
 
+
 % close all
 % clear all
 % clc
@@ -24,7 +25,7 @@ for j=1:size(joint_angles,1)
     joint_angles_sm(j,:) = conv(joint_angles(j,:),weight, 'same');
 end
 %%% create video writer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%% CREATING VIDEO %%%%%%%%%%%%%%%%%%%%%%
 writerObj = VideoWriter('joint_angle_movement_10SMA.avi');
 writerObj.FrameRate = 120;
 writerObj.Quality = 100;
