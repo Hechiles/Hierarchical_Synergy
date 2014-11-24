@@ -26,7 +26,7 @@ for j=1:size(joint_angles,1)
 end
 %%% create video writer %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% CREATING VIDEO %%%%%%%%%%%%%%%%%%%%%%
-writerObj = VideoWriter('joint_angle_movement_10SMA.avi');
+writerObj = VideoWriter('joint_angle_movement_10SMA.avi');   % create an object writerObj as a container for holding frames
 writerObj.FrameRate = 120;
 writerObj.Quality = 100;
 open(writerObj);
@@ -36,12 +36,12 @@ for j=1:num_frame
     q = joint_angles_sm(:,j);
     qm_my=q*pi/180';
     hand = SGmoveHand(hand,qm_my);
-    SGplotHand(hand);
+    SGplotHand(hand);                                      % SGplotHand contains plot function
     grid on
     axis([-100 100 -180 0 -60 20 ]);
     
     frame = getframe;
-    writeVideo(writerObj,frame);
+    writeVideo(writerObj,frame);                           % writeVideo writes each frame/plot to the container writerObj
     
 end
 
